@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
-import { getNowPlaying } from "../../services/movie";
-import { useQuery } from "../../hooks/useQuery";
+import { getNowPlaying } from "../../../services";
+import { useQuery } from "../../../hooks/useQuery";
 
 const useMovieList = () => {
   const query = useQuery();

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 import { postLogin } from "../services/auth/api";
 import { useNavigate } from "react-router-dom";
@@ -19,9 +19,12 @@ const handleSubmit = async (e: FormEvent) => {
 
     try {
         const response = await postLogin(payload);
-
-        localStorage.setItem("Token", response?.token as string);
+        
+        if (response?.token) {
+            localStorage.setItem("token", response?.token as string);
         navigate("/");
+        }
+        
     } catch (error) {
       console.log(error);  
     }   

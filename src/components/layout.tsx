@@ -1,6 +1,6 @@
+import Footer from './footer.tsx'
 import Navbar from './navbar.tsx'
 import { Outlet } from 'react-router-dom'
-import React from 'react'
 
 const Layout = () => {
   return (
@@ -9,7 +9,7 @@ const Layout = () => {
         <div className='flex-grow'>
         <Outlet/>
         </div>
-
+        <Footer/>
     </div>
   )
 }

@@ -1,17 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom'
 
-import React from 'react'
-
 const Navbar = () => {
 const navigate = useNavigate();
 const handleLogout = () => {
-  localStorage.removeItem("Token");
+  localStorage.removeItem("token");
   navigate("/login");
 };
   
   return (
     <div className='flex flex-row w-full justify-between p-5 shadow-md bg-gray-200'>
-    <div className='color-whit'>Hagy</div>
+    <div>Hagy</div>
     <div className='flex flex-row gap-5'>
     <Link to={"/"}>Home</Link>
     <Link to={"/movie"}>Movie</Link>

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
-
-import MovieCard from "../components/movie-card";
-import { getNowPlaying } from "../services/movie";
+import { Card } from "../../components/card";
+import useMovieList from "./hooks/useMovieList";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "../hooks/useQuery";
+import { useQuery } from "../../hooks/useQuery";
 
 const Movie = () => {
   const navigate = useNavigate ();
 
-  const [loading, nowPlayingData] = useMovieList();
+  const { loading, nowPlayingData } = useMovieList();
 
   const query = useQuery();
   const page = (query.get("page") !== null ? query.get("page") : 1) as string;
@@ -29,7 +27,7 @@ const Movie = () => {
     {!loading ? (
     <div className=" flex-row text-md flex flex-wrap justify-center gap-5">
       {nowPlayingData?.results.map((item: Movie) => (
-      <MovieCard
+      <Card
       poster_path={item.poster_path}
       title={item.title}
       release_date={item.release_date}
@@ -52,7 +50,3 @@ const Movie = () => {
 };
 
 export default Movie;
-
-function useMovieList(): [any, any] {
-  throw new Error("Function not implemented.");
-}

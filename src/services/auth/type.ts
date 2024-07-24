@@ -12,7 +12,7 @@ type AuthResponse = {
     gender: string
     image: string
     token: string
-    refreshToken: string
+    refreshtoken: string
   }
 
   export type {AuthPayload, AuthResponse}

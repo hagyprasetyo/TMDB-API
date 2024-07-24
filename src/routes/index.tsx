@@ -1,10 +1,9 @@
-import Authentication from "../../auth";
-import Detail from "../../detail";
-import Home from "../../features/home";
-import Layout from "../../components/layout";
-import Movie from "../../movie";
+import Authentication from "../auth";
+import Home from "../features/home";
+import Layout from "../components/layout";
+import Movie from "../features/movie";
 import ProtectedRoutes from "./protected-routes";
-import TvShow from "../../tv-show";
+import TvShow from "../features/tv-show";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -22,10 +21,6 @@ export const router = createBrowserRouter([
                     {
                         path: "/login",
                         element: <Authentication/>,
-                    },
-                    {
-                        path: "/detail",
-                        element: <Detail/>
                     },
                     {
                         path: "/movie",

@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface Props {
     title: string;
     poster_path: string;
-    release_date: string;
+    release_date?: string;
     overview: string
     size?: string;
+    vote_average?: number;
 }
 
-const MovieCard = (props: Props) => {
+export const Card = (props: Props) => {
 const { title, poster_path, release_date, overview, size} = props;
 const [showOverview, setShowOverview] = useState(false);
 
@@ -18,9 +19,10 @@ const [showOverview, setShowOverview] = useState(false);
 
   return (
   <div className={`flex flex-col ${size}`}>
-  <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} onClick={toggleOverview}></img>
+  <img className="rounded-md" src={`https://image.tmdb.org/t/p/w154/${poster_path}`} onClick={toggleOverview}></img>
   <label className="font font-semibold flex justify-center ">{title}</label>
   <p className="flex justify-center">{release_date}</p>
+  
   
   {showOverview && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-50">
@@ -37,5 +39,3 @@ const [showOverview, setShowOverview] = useState(false);
   </div>
   )
 }
-
-export default MovieCard;

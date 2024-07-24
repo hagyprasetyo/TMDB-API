@@ -1,6 +1,6 @@
 import {AuthPayload, AuthResponse} from "./type"
 
-import { API } from "../movie";
+import { API } from "..";
 
 const postLogin = async (payload: AuthPayload) => {
     try{
@@ -14,4 +14,4 @@ const postLogin = async (payload: AuthPayload) => {
 }
 };
 
-export {postLogin};
+export { postLogin };
